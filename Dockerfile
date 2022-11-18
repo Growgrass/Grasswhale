@@ -11,7 +11,7 @@ RUN apk add mongodb
 RUN mkdir -p /data/db/
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
-WORKDIR Grasscutter
+WORKDIR /Grasscutter
 RUN chmod +x gradlew
 RUN .\gradlew jar
 
