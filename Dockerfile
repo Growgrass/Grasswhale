@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+MAINTAINER "admin@growgrass.ga"
+
 RUN apk add openjdk17
 RUN apk add --no-cache git
 RUN apk add mongodb
