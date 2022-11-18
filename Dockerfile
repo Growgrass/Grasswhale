@@ -2,6 +2,9 @@ FROM alpine:latest
 
 MAINTAINER "admin@growgrass.ga"
 
+COPY start.py .
+
+RUN apk add python3 python3-dev
 RUN apk add openjdk17
 RUN apk add --no-cache git
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories
@@ -15,10 +18,12 @@ WORKDIR /Grasscutter
 RUN chmod +x gradlew
 RUN sh gradlew jar
 
+RUN mv /start.py /Grasscutter/start.py
+
 EXPOSE 27017
 EXPOSE 443
 EXPOSE 22102
 
-ENTRYPOINT [ "java" ]
+ENTRYPOINT [ "python3" ]
 
-CMD [ "-jar grasscutter-*.jar" ]
+CMD [ "start.py" ]
