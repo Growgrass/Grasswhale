@@ -10,11 +10,6 @@ RUN apk update
 RUN apk add mongodb
 RUN mkdir -p /data/db/
 
-
-
-RUN rc-update add mongodb default
-RUN rc-service mongodb start
-
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR Grasscutter
 RUN chmod +x gradlew
