@@ -4,7 +4,13 @@ MAINTAINER "admin@growgrass.ga"
 
 RUN apk add openjdk17
 RUN apk add --no-cache git
-RUN apk add mongodb
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community' >> /etc/apk/repositories
+RUN apk update
+apk add mongodb
+RUN mkdir -p /data/db/
+
+
 
 RUN rc-update add mongodb default
 RUN rc-service mongodb start
