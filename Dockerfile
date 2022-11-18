@@ -13,7 +13,7 @@ RUN mkdir -p /data/db/
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR /Grasscutter
 RUN chmod +x gradlew
-RUN sh .\gradlew jar
+RUN sh gradlew jar
 
 EXPOSE 27017
 EXPOSE 443
