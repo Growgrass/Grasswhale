@@ -18,6 +18,11 @@ WORKDIR /Grasscutter
 RUN chmod +x gradlew
 RUN sh gradlew jar
 
+RUN rm -rf resources
+WORKDIR /
+RUN git clone https://github.com/tamilpp25/Grasscutter_Resources
+RUN mv /Grasscutter_Resources/Resources /Grasscutter/resources
+
 RUN mv /start.py /Grasscutter/start.py
 
 EXPOSE 27017
