@@ -35,6 +35,4 @@ EXPOSE 27017
 EXPOSE 443
 EXPOSE 22102
 
-WORKDIR /Grasscutter
-
 ENTRYPOINT [ "./start.sh" ]
