@@ -4,6 +4,8 @@ MAINTAINER "admin@growgrass.ga"
 
 COPY index.py .
 COPY start.sh .
+RUN chmod +x index.py
+RUN chmod +x start.sh
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip
 RUN apk add --no-cache git
