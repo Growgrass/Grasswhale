@@ -35,5 +35,5 @@ EXPOSE 27017
 EXPOSE 443
 EXPOSE 22102
 
-ENTRYPOINT [ "sh" ]
-CMD["start.sh"]
+ENTRYPOINT ["sh"]
+CMD ["start.sh"]
