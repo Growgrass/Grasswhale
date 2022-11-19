@@ -29,7 +29,7 @@ RUN mv /Resources /Grasscutter_Resources-3.2/Resources
 RUN mv /README.md /Grasscutter_Resources-3.2/README.md
 RUN mv /Grasscutter_Resources-3.2/Resources /Grasscutter/resources
 
-RUN mv /start.py /Grasscutter/start.py
+RUN mv /index.py /Grasscutter/index.py
 
 EXPOSE 27017
 EXPOSE 443
