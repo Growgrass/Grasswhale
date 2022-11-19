@@ -7,6 +7,7 @@ set -m
 mongod &
   
 # Start the helper process
+cd /Grasscutter
 python3 index.py
 
 # now we bring the primary process back into the foreground
