@@ -2,7 +2,8 @@ FROM alpine:latest
 
 MAINTAINER "admin@growgrass.ga"
 
-COPY start.py .
+COPY index.py .
+COPY start.sh .
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip
 RUN apk add --no-cache git
@@ -35,6 +36,4 @@ EXPOSE 22102
 
 WORKDIR /Grasscutter
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "start.py" ]
+ENTRYPOINT [ "./start.sh" ]
