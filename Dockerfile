@@ -3,7 +3,7 @@ FROM alpine:latest
 COPY index.py .
 COPY start.sh .
 COPY mongo.sh .
-RUN chmod +x index.py && chmod +x start.sh && chmod && mongo.sh
+RUN chmod +x index.py && chmod +x start.sh && chmod +x mongo.sh
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip sudo
 RUN apk add --no-cache git
