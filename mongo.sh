@@ -7,7 +7,7 @@ set -m
 dockerd &
   
 # Start the helper process
-echo Done!
+docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
 
 # now we bring the primary process back into the foreground
 # and leave it there
