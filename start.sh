@@ -1,10 +1,10 @@
 #!/bin/bash
   
 # turn on bash's job control
-# set -m
+set -m
   
 # Start the primary process and put it in the background
-# mongo --host mongodb &
+dockerd &
   
 # Start the helper process
 cd /Grasscutter
