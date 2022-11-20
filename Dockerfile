@@ -10,8 +10,6 @@ RUN apk add --no-cache git
 
 RUN mkdir -p /data
 RUN rc-update add docker boot
-RUN docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
-RUN docker ps
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR /Grasscutter
