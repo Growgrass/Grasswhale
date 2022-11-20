@@ -31,4 +31,5 @@ EXPOSE 22102/udp
 
 VOLUME /data/db
 
-CMD ["sh", "start.sh"]
+WORKDIR /Grasscutter
+CMD ["python3", "index.py"]
