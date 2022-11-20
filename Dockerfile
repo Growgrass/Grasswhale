@@ -10,7 +10,7 @@ RUN apk add --no-cache git
 RUN apk add --update docker openrc
 
 RUN mkdir -p /data
-RUN sh mongo.sh
+# RUN sh mongo.sh
 # RUN rc-update add docker boot
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
