@@ -5,8 +5,8 @@ COPY start.sh .
 RUN chmod +x index.py && chmod +x start.sh
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip openrc
-RUN apk add --no-cache git docker-cli
-
+RUN apk add --no-cache git docker
+RUN systemctl start docker
 
 RUN mkdir -p /data
 # RUN rc-update add docker boot
