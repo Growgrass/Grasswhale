@@ -4,13 +4,12 @@ COPY index.py .
 COPY start.sh .
 RUN chmod +x index.py && chmod +x start.sh
 
-RUN apk add python3 python3-dev openjdk17 wget p7zip
+RUN apk add python3 python3-dev openjdk17 wget p7zip docker
 RUN apk add --no-cache git
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community' >> /etc/apk/repositories
-RUN apk update
-RUN apk add mongodb
-RUN mkdir -p /data/db/
+
+RUN mkdir -p /data
+RUN docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
+RUN docker ps -a
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR /Grasscutter
