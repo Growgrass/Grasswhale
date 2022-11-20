@@ -9,7 +9,7 @@ RUN apk add --no-cache git docker-cli
 
 
 RUN mkdir -p /data
-RUN rc-update add docker boot
+# RUN rc-update add docker boot
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR /Grasscutter
