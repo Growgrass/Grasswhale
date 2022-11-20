@@ -4,12 +4,14 @@ COPY index.py .
 COPY start.sh .
 RUN chmod +x index.py && chmod +x start.sh
 
-RUN apk add python3 python3-dev openjdk17 wget p7zip docker sudo
+RUN apk add python3 python3-dev openjdk17 wget p7zip docker openrc
 RUN apk add --no-cache git
 
+
 RUN mkdir -p /data
-RUN sudo docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
-RUN sudo docker ps -a
+RUN rc-update add docker boot
+RUN docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
+RUN docker ps
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
 WORKDIR /Grasscutter
@@ -27,7 +29,9 @@ RUN mv /index.py /Grasscutter/index.py
 
 EXPOSE 27017
 EXPOSE 443
-EXPOSE 22102
+EXPOSE 22102/udp
+
+VOLUME /data/db
 
 ENTRYPOINT ["sh"]
 CMD ["start.sh"]
