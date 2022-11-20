@@ -4,8 +4,8 @@ COPY index.py .
 COPY start.sh .
 RUN chmod +x index.py && chmod +x start.sh
 
-RUN apk add python3 python3-dev openjdk17 wget p7zip docker openrc
-RUN apk add --no-cache git
+RUN apk add python3 python3-dev openjdk17 wget p7zip openrc
+RUN apk add --no-cache git docker
 
 
 RUN mkdir -p /data
@@ -31,5 +31,4 @@ EXPOSE 22102/udp
 
 VOLUME /data/db
 
-ENTRYPOINT ["sh"]
-CMD ["start.sh"]
+CMD ["sh", "start.sh"]
