@@ -1,16 +1,16 @@
 #!/bin/bash
   
 # turn on bash's job control
-set -m
+# set -m
   
 # Start the primary process and put it in the background
-dockerd &
+# dockerd &
   
 # Start the helper process
-docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
+# docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
 cd /Grasscutter
 python3 index.py
 
 # now we bring the primary process back into the foreground
 # and leave it there
-fg %1
+# fg %1
