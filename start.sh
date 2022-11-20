@@ -4,7 +4,7 @@
 set -m
   
 # Start the primary process and put it in the background
-mongod &
+mongo --host mongodb &
   
 # Start the helper process
 cd /Grasscutter
