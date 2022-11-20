@@ -8,7 +8,7 @@ RUN apk add python3 python3-dev openjdk17 wget p7zip openrc
 RUN apk add --no-cache git docker
 
 RUN mkdir -p /data
-RUN rc-update add docker boot
+RUN rc-update add docker default
 RUN rc-service docker start
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
