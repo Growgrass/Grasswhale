@@ -7,6 +7,7 @@ set -m
 dockerd &
   
 # Start the helper process
+docker run --name mongodb -v ~/data:/data/db -d -p 27017:27017 mongo
 cd /Grasscutter
 python3 index.py
 
