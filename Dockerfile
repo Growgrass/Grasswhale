@@ -1,11 +1,8 @@
 FROM alpine:latest
 
-MAINTAINER "admin@growgrass.ga"
-
 COPY index.py .
 COPY start.sh .
-RUN chmod +x index.py
-RUN chmod +x start.sh
+RUN chmod +x index.py && chmod +x start.sh
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip
 RUN apk add --no-cache git
@@ -24,10 +21,8 @@ RUN rm -rf resources
 WORKDIR /
 RUN wget https://mirror.textcord.xyz/etc/Grasscutter_Resources-3.2.7z
 RUN 7z x Grasscutter_Resources-3.2.7z
-RUN mkdir /Grasscutter_Resources-3.2
-RUN mv /Resources /Grasscutter_Resources-3.2/Resources
-RUN mv /README.md /Grasscutter_Resources-3.2/README.md
-RUN mv /Grasscutter_Resources-3.2/Resources /Grasscutter/resources
+RUN mv /Resources /Grasscutter/resources
+RUN mv /README.md /Grasscutter/resources/README.md
 
 RUN mv /index.py /Grasscutter/index.py
 
