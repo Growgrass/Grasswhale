@@ -13,7 +13,7 @@ RUN mkdir -p /data
 # RUN sh mongo.sh
 # RUN rc-update add docker boot
 
-RUN git clone https://github.com/Grasscutters/Grasscutter.git
+RUN git clone https://github.com/Growgrass/Grasscutter.git
 WORKDIR /Grasscutter
 RUN chmod +x gradlew
 RUN sh gradlew jar
