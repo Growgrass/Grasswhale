@@ -2,13 +2,15 @@ FROM alpine:latest
 
 COPY index.py .
 COPY start.sh .
-RUN chmod +x index.py && chmod +x start.sh
+COPY mongo.sh .
+RUN chmod +x index.py && chmod +x start.sh && chmod && mongo.sh
 
 RUN apk add python3 python3-dev openjdk17 wget p7zip sudo
 RUN apk add --no-cache git
 RUN apk add --update docker openrc
 
 RUN mkdir -p /data
+RUN sh mongo.sh
 # RUN rc-update add docker boot
 
 RUN git clone https://github.com/Grasscutters/Grasscutter.git
