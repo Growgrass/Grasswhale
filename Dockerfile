@@ -2,16 +2,12 @@ FROM alpine:latest
 
 COPY index.py .
 COPY start.sh .
-COPY mongo.sh .
-RUN chmod +x index.py && chmod +x start.sh && chmod +x mongo.sh
+RUN chmod +x index.py && chmod +x start.sh
 
-RUN apk add python3 python3-dev openjdk17 wget p7zip sudo
+RUN apk add python3 python3-dev openjdk17 wget p7zip
 RUN apk add --no-cache git
-RUN apk add --update docker openrc
 
 RUN mkdir -p /data
-# RUN sh mongo.sh
-# RUN rc-update add docker boot
 
 RUN git clone https://github.com/Growgrass/Grasscutter.git
 WORKDIR /Grasscutter
@@ -31,6 +27,6 @@ EXPOSE 27017
 EXPOSE 443
 EXPOSE 22102/udp
 
-VOLUME /data/db
+VOLUME /Grasscutter
 
 CMD ["sh", "start.sh"]

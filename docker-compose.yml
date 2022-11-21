@@ -1,0 +1,23 @@
+services:
+    mongodb:
+        image: mongo:latest
+        container_name: grasswhale_mongodb
+        networks:
+            - grasswhale_network
+        ports:
+            - 27017:27017/tcp
+        volumes:
+            - /data/db:/data/db:rw
+
+    grasscutter:
+        image: nysocia/grasswhale:latest
+        container_name: grasswhale_grasscutter
+        networks:
+            - grasswhale_network
+        ports:
+            - 22102:22102/udp
+        depends_on:
+            - mongodb
+
+networks:
+    grasswhale_network:
