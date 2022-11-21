@@ -15,7 +15,10 @@ services:
         networks:
             - grasswhale_network
         ports:
+            # Game Port
             - 22102:22102/udp
+            # Http Port
+            - 443:443/tcp
         depends_on:
             - mongodb
 
